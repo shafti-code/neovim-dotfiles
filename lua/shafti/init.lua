@@ -1,0 +1,2 @@
+require("shafti.settings")
+
