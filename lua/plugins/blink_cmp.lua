@@ -2,13 +2,12 @@ return {
 	{
 	  'saghen/blink.cmp',
 	  dependencies = 'rafamadriz/friendly-snippets',
-
 	  version = '*',
 
 	  opts = {
 	    keymap = {
         ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-		['<C-e>'] = { 'hide', 'fallback' },
+        ['<C-m>'] = { 'hide', 'fallback' },
 		['<CR>'] = { 'accept', 'fallback' },
 
 
