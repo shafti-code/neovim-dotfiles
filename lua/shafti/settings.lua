@@ -35,6 +35,7 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.opt.isfname:append("@-@")
 vim.opt.smartindent = true
@@ -50,7 +51,7 @@ vim.opt.mouse = ""
 
 vim.opt.termguicolors = true
 
--- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none'})
--- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none'})
--- vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none'})
--- vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none'})
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none'})
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none'})
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none'})
+vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none'})
