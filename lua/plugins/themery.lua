@@ -5,7 +5,7 @@ return {
 
     config = function()
         require("themery").setup({
-            themes = {"night-owl","rose-pine","ashen"},
+            themes = {"night-owl","catppuccin","ashen"},
             livePreview = true,
             -- add the config here
         })
