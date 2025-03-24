@@ -47,10 +47,11 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.mouse = ""
+vim.keymap.set('n', '<leader>i', '<cmd>lua vim.diagnostic.open_float()<CR>')
+--this keybind here pops up the diagnostic window so you can read errors provided by the lsp
 
 
 vim.opt.termguicolors = true
-
 -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none'})
 -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none'})
 -- vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none'})
