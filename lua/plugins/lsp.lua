@@ -22,7 +22,7 @@ return {
             require("lspconfig").gopls.setup { capabilities = capabilities }
             require("lspconfig").html.setup { capabilities = capabilities }
             require("lspconfig").lua_ls.setup { capabilities = capabilities }
-            require("lspconfig").pyright.setup { capabilities = capabilities }
+            -- require("lspconfig").pyright.setup { capabilities = capabilities }
             require("lspconfig").ts_ls.setup { capabilities = capabilities }
             require("lspconfig").rust_analyzer.setup { capabilities = capabilities }
             require("lspconfig").zls.setup { capabilities = capabilities }
