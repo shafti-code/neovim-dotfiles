@@ -1,4 +1,3 @@
-require('lualine').setup{}
 vim.g.mapleader = " "
 
 vim.keymap.set("n","<leader>pv", vim.cmd.Ex)
@@ -6,7 +5,6 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 
-vim.keymap.set('n', '<leader>th', ":Themery<CR>")
 
 local harpoon = require("harpoon")
 
@@ -56,3 +54,26 @@ vim.opt.termguicolors = true
 -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none'})
 -- vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none'})
 -- vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none'})
+
+
+-- THEME PICKER
+require('theme-picker').setup({
+  themes = {
+    { name = 'gruvbox', colorscheme = 'gruvbox' },
+    { name = 'blue cat', colorscheme = 'catppuccin'},
+  },
+  picker = {
+    prompt_title = 'Select Theme',
+  }
+})
+
+vim.api.nvim_set_keymap('n', '<leader>th', ':lua require("theme-picker").open_theme_picker()<CR>', { noremap = true, silent = true })
+
+-- set the line number colors to white to make them more visible
+function LineNumberColors()
+    vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='white', bold=true })
+    vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
+    vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='white', bold=true })
+end
+
+LineNumberColors()
