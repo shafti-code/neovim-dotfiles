@@ -48,17 +48,11 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.mouse = ""
+vim.opt.wrap = false
 vim.keymap.set('n', '<leader>i', '<cmd>lua vim.diagnostic.open_float()<CR>')
 --this keybind here pops up the diagnostic window so you can read errors provided by the lsp
 
-vim.opt.termguicolors = true
+-- set the highlight group for background to be this pretty color (nvim dark grey 1) that can be found at https://github.com/nshern/neovim-default-colorscheme-extras
+vim.api.nvim_set_hl(0, "Normal", { bg = "#07080D" })
 
 
--- set the line number colors to white to make them more visible
-function LineNumberColors()
-    vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='white', bold=false })
-    vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=false })
-    vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='white', bold=false })
-end
-
-LineNumberColors()
