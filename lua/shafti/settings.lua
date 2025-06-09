@@ -1,5 +1,7 @@
 require("oil").setup()
-vim.keymap.set("n","<leader>pv", "<CMD>Oil<CR>")
+vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
+
+Retrodark = "#07080D"
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
@@ -23,7 +25,6 @@ vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
 vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>y", "\"+y")
@@ -31,12 +32,14 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
+vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end)
+vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end)
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("n", "<leader>x","<cmd>source %<CR>")
+vim.keymap.set("n", "<leader>x", "<cmd>source %<CR>")
 
 vim.opt.isfname:append("@-@")
 vim.opt.smartindent = true
@@ -49,10 +52,13 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.mouse = ""
 vim.opt.wrap = false
-vim.keymap.set('n', '<leader>i', '<cmd>lua vim.diagnostic.open_float()<CR>')
+vim.keymap.set('n', '<leader>i', '<cmd>lua vim.diagnostic.open_float({border = rounded})<CR>')
 --this keybind here pops up the diagnostic window so you can read errors provided by the lsp
 
+
+
+
 -- set the highlight group for background to be this pretty color (nvim dark grey 1) that can be found at https://github.com/nshern/neovim-default-colorscheme-extras
-vim.api.nvim_set_hl(0, "Normal", { bg = "#07080D" })
-
-
+vim.api.nvim_set_hl(0, "Normal", { bg = Retrodark })
+-- vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = Retrodark })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = Retrodark })
