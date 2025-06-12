@@ -1,13 +1,18 @@
 -- this is your file manager, i chose this one because you can edit the filestructure like a text file :D
-require("oil").setup()
+require("oil").setup({
+    view_options = {
+        show_hidden = true,
+    }
+})
 vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
 
 -- i found this cool dark color hex and use it for all background colors, but typing in the full hex everywhere would be stupid
--- this color can be found at https://github.com/nshern/neovim-default-colorscheme-extras 
+-- this color can be found at https://github.com/nshern/neovim-default-colorscheme-extras
 -- so we have this global here
-Retrodark = "#07080D"
+-- Retrodark = "#07080D"
+Retrodark = "#000000"
 
---here i define some keybinds for telecope, we have 
+--here i define some keybinds for telecope, we have
 --space ff for "find file"
 --space fg for "find via grep"
 --space fk for "find keybinds"
@@ -30,7 +35,7 @@ harpoon:setup()
 
 --space a for "append" a file to harpoon (logical indeed right?)
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
---Ctrl e for "edit" files you have in your harpoon 
+--Ctrl e for "edit" files you have in your harpoon
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
 --Ctrl 1 through 4 jumps to files on their dedicated positions in harpoon
@@ -43,7 +48,7 @@ vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- if you want to copy something into your system clipboard you can just hit space y 
+-- if you want to copy something into your system clipboard you can just hit space y
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>y", "\"+y")
 
@@ -88,8 +93,7 @@ vim.opt.wrap = false
 --this keybind here pops up the diagnostic window so you can read errors provided by the lsp :D
 vim.keymap.set('n', '<leader>i', '<cmd>lua vim.diagnostic.open_float({border = rounded})<CR>')
 
-
-
+vim.o.termguicolors = true
 -- set some backgrounds to Retrodark from the top of this file (quick tip hit gg to go there)
 -- hit space fd and type in nvim_set_hl to read more about it
 vim.api.nvim_set_hl(0, "Normal", { bg = Retrodark })
