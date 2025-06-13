@@ -89,12 +89,12 @@ vim.opt.expandtab = true
 vim.opt.mouse = ""
 --we dont like wrap around here just hit gqq to format the line dude :D
 vim.opt.wrap = false
-
 --this keybind here pops up the diagnostic window so you can read errors provided by the lsp :D
-vim.keymap.set('n', '<leader>i', '<cmd>lua vim.diagnostic.open_float({border = rounded})<CR>')
+vim.keymap.set('n', '<leader>i', function () vim.diagnostic.open_float({border = 'rounded'}) end)
 
 vim.o.termguicolors = true
 -- set some backgrounds to Retrodark from the top of this file (quick tip hit gg to go there)
 -- hit space fd and type in nvim_set_hl to read more about it
 vim.api.nvim_set_hl(0, "Normal", { bg = Retrodark })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = Retrodark })
 vim.api.nvim_set_hl(0, "Pmenu", { bg = Retrodark })
