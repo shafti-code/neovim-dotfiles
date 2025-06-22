@@ -10,7 +10,8 @@ vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
 -- this color can be found at https://github.com/nshern/neovim-default-colorscheme-extras
 -- so we have this global here
 -- Retrodark = "#07080D"
-Retrodark = "#000000"
+-- Retro_dark = "#000000"
+-- Soft_white = "#D8D8D8"
 
 --here i define some keybinds for telecope, we have
 --space ff for "find file"
@@ -93,8 +94,10 @@ vim.opt.wrap = false
 vim.keymap.set('n', '<leader>i', function () vim.diagnostic.open_float({border = 'rounded'}) end)
 
 vim.o.termguicolors = true
+-- this is commented out because i added rose pine and i dont need this anymore but having the code ready is hand
 -- set some backgrounds to Retrodark from the top of this file (quick tip hit gg to go there)
 -- hit space fd and type in nvim_set_hl to read more about it
-vim.api.nvim_set_hl(0, "Normal", { bg = Retrodark })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = Retrodark })
-vim.api.nvim_set_hl(0, "Pmenu", { bg = Retrodark })
+-- vim.api.nvim_set_hl(0, "Normal", { bg = Retro_dark, fg = Soft_white })
+-- vim.api.nvim_set_hl(0, "hi-normal", { fg = Soft_white })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = Retro_dark })
+-- vim.api.nvim_set_hl(0, "Pmenu", { bg = Retro_dark })
