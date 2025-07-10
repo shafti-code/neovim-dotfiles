@@ -26,25 +26,6 @@ vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope find keyb
 vim.keymap.set('n', '<leader>fw', builtin.builtin, { desc = 'Telescope find pickers' })
 vim.keymap.set('n', '<leader>fd', builtin.help_tags, { desc = 'Telescope live grep' })
 
---harpoon mentioned, from that one moustache man
-local harpoon = require("harpoon")
-
--- REQUIRED
-harpoon:setup()
--- REQUIRED
---
-
---space a for "append" a file to harpoon (logical indeed right?)
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
---Ctrl e for "edit" files you have in your harpoon
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
---Ctrl 1 through 4 jumps to files on their dedicated positions in harpoon
-vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
-
 --cool trick for moving around lines you have selected, try it, select a line and hit Shift j and Shift K, neat right?
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
