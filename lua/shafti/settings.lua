@@ -75,7 +75,8 @@ vim.opt.wrap = false
 vim.keymap.set('n', '<leader>i', function () vim.diagnostic.open_float({border = 'rounded'}) end)
 
 vim.o.termguicolors = true
--- this is commented out because i added rose pine and i dont need this anymore but having the code ready is hand
+vim.cmd.colorscheme('gruvbox')
+-- this is commented out because i added a colorscheme and i dont need this anymore but having the code ready is hand
 -- set some backgrounds to Retrodark from the top of this file (quick tip hit gg to go there)
 -- hit space fd and type in nvim_set_hl to read more about it
 -- vim.api.nvim_set_hl(0, "Normal", { bg = Retro_dark, fg = Soft_white })
