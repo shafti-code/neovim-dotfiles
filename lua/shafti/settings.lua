@@ -1,31 +1,3 @@
--- this is your file manager, i chose this one because you can edit the filestructure like a text file :D
-require("oil").setup({
-    view_options = {
-        show_hidden = true,
-    }
-})
-vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
-
--- i found this cool dark color hex and use it for all background colors, but typing in the full hex everywhere would be stupid
--- this color can be found at https://github.com/nshern/neovim-default-colorscheme-extras
--- so we have this global here
--- Retrodark = "#07080D"
--- Retro_dark = "#000000"
--- Soft_white = "#D8D8D8"
-
---here i define some keybinds for telecope, we have
---space ff for "find file"
---space fg for "find via grep"
---space fk for "find keybinds"
---space fw for "find whatever (picker)" if you want to use a picker you dont have a keybind for you can find it here
---space fd for "find docs"
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope find keybinds' })
-vim.keymap.set('n', '<leader>fw', builtin.builtin, { desc = 'Telescope find pickers' })
-vim.keymap.set('n', '<leader>fd', builtin.help_tags, { desc = 'Telescope live grep' })
-
 --cool trick for moving around lines you have selected, try it, select a line and hit Shift j and Shift K, neat right?
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -59,10 +31,10 @@ vim.keymap.set("n", "<leader>x", "<cmd>source %<CR>")
 -- this line fixes a thing with file name sourcing in vim, a good thing to have and you probably would never need to change this
 vim.opt.isfname:append("@-@")
 --self explanatory options
-vim.opt.smartindent = true
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
 
+vim.opt.smartindent = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -75,11 +47,4 @@ vim.opt.wrap = false
 vim.keymap.set('n', '<leader>i', function () vim.diagnostic.open_float({border = 'rounded'}) end)
 
 vim.o.termguicolors = true
-vim.cmd.colorscheme('gruvbox')
--- this is commented out because i added a colorscheme and i dont need this anymore but having the code ready is hand
--- set some backgrounds to Retrodark from the top of this file (quick tip hit gg to go there)
--- hit space fd and type in nvim_set_hl to read more about it
--- vim.api.nvim_set_hl(0, "Normal", { bg = Retro_dark, fg = Soft_white })
--- vim.api.nvim_set_hl(0, "hi-normal", { fg = Soft_white })
--- vim.api.nvim_set_hl(0, "NormalFloat", { bg = Retro_dark })
--- vim.api.nvim_set_hl(0, "Pmenu", { bg = Retro_dark })
+
