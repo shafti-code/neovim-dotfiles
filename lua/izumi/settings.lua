@@ -48,3 +48,4 @@ vim.keymap.set('n', '<leader>i', function () vim.diagnostic.open_float({border =
 
 vim.o.termguicolors = true
 
+vim.cmd.colorscheme('tokyonight')
