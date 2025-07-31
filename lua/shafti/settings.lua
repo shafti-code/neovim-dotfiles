@@ -49,7 +49,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 -- i like to exit insert mode with Ctrl-c but it caused weird lsp errors so the easiest fix i could find was to just map esc to ctrl - c
-vim.keymap.set("i", "<C-c>", "<Esc>")
+-- vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- this cool little keybind lets you "source" lua files so what that means is if you have a lua file (like this config!) -
 -- you can just hit space x to see those changes! works on just random files too if you want to quickly test a console program
@@ -75,7 +75,6 @@ vim.opt.wrap = false
 vim.keymap.set('n', '<leader>i', function () vim.diagnostic.open_float({border = 'rounded'}) end)
 
 vim.o.termguicolors = true
-vim.cmd.colorscheme('gruvbox')
 -- this is commented out because i added a colorscheme and i dont need this anymore but having the code ready is hand
 -- set some backgrounds to Retrodark from the top of this file (quick tip hit gg to go there)
 -- hit space fd and type in nvim_set_hl to read more about it
@@ -83,3 +82,8 @@ vim.cmd.colorscheme('gruvbox')
 -- vim.api.nvim_set_hl(0, "hi-normal", { fg = Soft_white })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = Retro_dark })
 -- vim.api.nvim_set_hl(0, "Pmenu", { bg = Retro_dark })
+
+vim.cmd.colorscheme('rose-pine')
+vim.opt.list=true
+
+vim.opt.listchars="space:·"
