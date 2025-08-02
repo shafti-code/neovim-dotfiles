@@ -19,3 +19,4 @@ vim.opt.wrap = false
 vim.o.termguicolors = true
 vim.opt.list=true
 vim.opt.listchars="space:·"
+vim.cmd.colorscheme("torte")
