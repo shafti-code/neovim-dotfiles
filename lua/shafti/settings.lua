@@ -35,7 +35,7 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>y", "\"+y")
 
 -- this is silent deletion, basically if you hit space d + (combo)
--- so like space d, d it will delete current line but wont override your in neovim clibpoard
+-- so like space d, d it will delete current line but wont override your in neovim clipboard
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
@@ -63,6 +63,8 @@ vim.opt.smartindent = true
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
 
+vim.o.statusline = "%t"
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -72,7 +74,7 @@ vim.opt.mouse = ""
 --we dont like wrap around here just hit gqq to format the line dude :D
 vim.opt.wrap = false
 --this keybind here pops up the diagnostic window so you can read errors provided by the lsp :D
-vim.keymap.set('n', '<leader>i', function () vim.diagnostic.open_float({border = 'rounded'}) end)
+vim.keymap.set('n', '<leader>i', function() vim.diagnostic.open_float({ border = 'rounded' }) end)
 
 vim.o.termguicolors = true
 -- this is commented out because i added a colorscheme and i dont need this anymore but having the code ready is hand
@@ -82,8 +84,20 @@ vim.o.termguicolors = true
 -- vim.api.nvim_set_hl(0, "hi-normal", { fg = Soft_white })
 -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = Retro_dark })
 -- vim.api.nvim_set_hl(0, "Pmenu", { bg = Retro_dark })
+require("catppuccin").setup {
+    color_overrides = {
+        all = {
+            base = "#000000",
+            mantle = "#000000",
+            crust = "#000000",
+        },
+        latte = {},
+        frappe = {},
+        macchiato = {},
+        mocha = {},
+    }
+}
+vim.cmd.colorscheme('catppuccin')
+vim.opt.list = true
 
-vim.cmd.colorscheme('rose-pine')
-vim.opt.list=true
-
-vim.opt.listchars="space:·"
+vim.opt.listchars = "space:·"
