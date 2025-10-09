@@ -20,8 +20,8 @@ return {
             -- require("lspconfig").clangd.setup { capabilities = capabilities }
             -- require("lspconfig").gopls.setup { capabilities = capabilities }
             -- require("lspconfig").html.setup { capabilities = capabilities }
-            -- require("lspconfig").phpactor.setup{ capabilities = capabilities }
             -- require("lspconfig").pyright.setup { capabilities = capabilities }
+            require("lspconfig").phpactor.setup{ capabilities = capabilities }
             require("lspconfig").bashls.setup { capabilities = capabilities }
             require("lspconfig").nixd.setup { capabilities = capabilities }
             require("lspconfig").lua_ls.setup { capabilities = capabilities }
