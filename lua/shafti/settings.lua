@@ -1,10 +1,5 @@
 -- this is your file manager, i chose this one because you can edit the filestructure like a text file :D
-require("oil").setup({
-    view_options = {
-        show_hidden = true,
-    }
-})
-vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
+vim.keymap.set("n", "<leader>pv", "<CMD>Ex<CR>")
 
 -- i found this cool dark color hex and use it for all background colors, but typing in the full hex everywhere would be stupid
 -- this color can be found at https://github.com/nshern/neovim-default-colorscheme-extras
