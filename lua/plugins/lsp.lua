@@ -16,21 +16,25 @@ return {
             },
         },
         config = function()
-            local capabilities = require('blink.cmp').get_lsp_capabilities()
+            vim.lsp.enable( {'gopls', 'html', 'pyright', 'phpactor', 'bashls', 'nixd', 'lua_ls', 'prismals', 'rust_analyzer', 'svelte', 'ts_ls', 'zls'}, true)
+
+
+
+            -- local capabilities = require('blink.cmp').get_lsp_capabilities()
             -- require("lspconfig").clangd.setup { capabilities = capabilities }
             -- require("lspconfig").gopls.setup { capabilities = capabilities }
             -- require("lspconfig").html.setup { capabilities = capabilities }
             -- require("lspconfig").pyright.setup { capabilities = capabilities }
-            require("lspconfig").phptools.setup{ capabilities = capabilities }
-            require("lspconfig").bashls.setup { capabilities = capabilities }
-            require("lspconfig").nixd.setup { capabilities = capabilities }
-            require("lspconfig").lua_ls.setup { capabilities = capabilities }
-            require("lspconfig").prismals.setup { capabilities = capabilities }
-            require("lspconfig").rust_analyzer.setup { capabilities = capabilities }
-            require("lspconfig").svelte.setup { capabilities = capabilities }
-            require("lspconfig").sourcekit.setup { capabilities = capabilities }
-            require("lspconfig").ts_ls.setup { capabilities = capabilities }
-            require("lspconfig").zls.setup { capabilities = capabilities }
+            -- require("lspconfig").phpactor.setup{ capabilities = capabilities }
+            -- require("lspconfig").bashls.setup { capabilities = capabilities }
+            -- require("lspconfig").nixd.setup { capabilities = capabilities }
+            -- require("lspconfig").lua_ls.setup { capabilities = capabilities }
+            -- require("lspconfig").prismals.setup { capabilities = capabilities }
+            -- require("lspconfig").rust_analyzer.setup { capabilities = capabilities }
+            -- require("lspconfig").svelte.setup { capabilities = capabilities }
+            -- require("lspconfig").sourcekit.setup { capabilities = capabilities }
+            -- require("lspconfig").ts_ls.setup { capabilities = capabilities }
+            -- require("lspconfig").zls.setup { capabilities = capabilities }
         end,
     }
 
