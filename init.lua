@@ -40,14 +40,16 @@ vim.keymap.set("n", "<leader>pv", "<CMD>Ex<CR>")
 --space ff for "find file"
 --space fg for "find via grep"
 --space fk for "find keybinds"
---space fw for "find whatever (picker)" if you want to use a picker you dont have a keybind for you can find it here
---space fd for "find docs"
+--space fw for "find picker" if you want to use a picker you dont have a keybind for you can find it here
+--space fd for "find help"
+--space fm for "find manpages"
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope find keybinds' })
-vim.keymap.set('n', '<leader>fw', builtin.builtin, { desc = 'Telescope find pickers' })
-vim.keymap.set('n', '<leader>fd', builtin.help_tags, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fp', builtin.builtin, { desc = 'Telescope find pickers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fm', builtin.man_pages, { desc = 'Telescope live grep' })
 
 --cool trick for moving around lines you have selected, try it, select a line and hit Shift j and Shift K, neat right?
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -64,7 +66,7 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- some styling for K keybind that is just the default mapping, but now we have this cool border around popup's
 -- try it hit K on the set part in vim.keymap.set() and enjoy *bonus, if you hit K and then K again when the float pops up you can go onto it
-vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = 'rounded' }) end)
+-- vim.keymap.set("n", "K", function() vim.lsp.buf.hover({ border = 'rounded' }) end)
 vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end)
 
 -- set up line numbers and relative line numbers
@@ -111,4 +113,4 @@ vim.keymap.set('n', '<leader>i', function() vim.diagnostic.open_float({ border =
 vim.o.termguicolors = false
 vim.opt.list = true
 
-vim.opt.listchars = "space:·"
+-- vim.opt.listchars = "space:·"
