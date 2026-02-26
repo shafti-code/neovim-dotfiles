@@ -51,9 +51,13 @@ vim.keymap.set('n', '<leader>fp', builtin.builtin, { desc = 'Telescope find pick
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fm', builtin.man_pages, { desc = 'Telescope live grep' })
 
+-- so uhhh in order to stop being so used to it im disabling this because i use some vim emulation editors and because this is not a standard feature its causing me 
+-- muscle memory issues so im disabling it for now
+-- its pretty cool tho thats wy its still in the comments
+--
 --cool trick for moving around lines you have selected, try it, select a line and hit Shift j and Shift K, neat right?
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+-- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- if you want to copy something into your system clipboard you can just hit space y
 vim.keymap.set("v", "<leader>y", "\"+y")
@@ -111,6 +115,9 @@ vim.opt.wrap = false
 vim.keymap.set('n', '<leader>i', function() vim.diagnostic.open_float({ border = 'rounded' }) end)
 
 vim.o.termguicolors = false
-vim.opt.list = true
+vim.opt.list = false
+
+vim.cmd.colorscheme('wildcharm')
+
 
 -- vim.opt.listchars = "space:·"
