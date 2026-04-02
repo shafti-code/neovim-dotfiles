@@ -1,3 +1,5 @@
-Neovim btw
->[!note]
->unironically the whole config is ridden with comments so i wont explain it here just know that the main file lies in ./lua/shafti/settings.lua
+Super basic vim config
+
+notable keys: read them in the init.lua bro
+
+CTRL N is for the completion to show on lsp enabled buffers
