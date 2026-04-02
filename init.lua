@@ -7,10 +7,10 @@ vim.lsp.enable( { 'gopls', 'html', 'pyright', 'phpactor', 'bashls', 'nixd', 'lua
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.lsp.inlay_hint.enable(true)
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     vim.keymap.set('i', '<C-n>', vim.lsp.omnifunc)
-    vim.lsp.inlay_hint.enable(true)
   end
 })
 
