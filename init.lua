@@ -2,18 +2,27 @@ vim.pack.add {
     { src = 'https://github.com/nvim-telescope/telescope.nvim' },
     { src = 'https://github.com/nvim-lua/plenary.nvim' },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
+    { src = 'https://github.com/rose-pine/neovim' },
 }
-vim.lsp.enable( { 'gopls', 'html', 'pyright', 'phpactor', 'bashls', 'nixd', 'lua_ls', 'prismals', 'rust_analyzer', 'svelte', 'ts_ls', 'zls' }, true)
+
+vim.lsp.enable(
+    { 'gopls', 'html', 'intelephense', 'bashls', 'nixd', 'lua_ls', 'prismals', 'rust_analyzer', 'svelte', 'ts_ls', 'zls' },
+    true)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 vim.lsp.inlay_hint.enable(true)
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(ev)
-    vim.keymap.set('i', '<C-n>', vim.lsp.omnifunc)
-  end
-})
 
+vim.cmd("set completeopt+=noselect")
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(ev)
+        local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+        vim.keymap.set('i', '<C-n>', vim.lsp.omnifunc)
+        if client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+        end
+    end
+})
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
@@ -63,4 +72,4 @@ vim.keymap.set('n', '<leader>i', function() vim.diagnostic.open_float({ border =
 vim.o.termguicolors = false
 vim.opt.list = false
 
-vim.cmd.colorscheme('wildcharm')
+vim.cmd.colorscheme('rose-pine')
