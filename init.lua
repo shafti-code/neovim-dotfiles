@@ -3,21 +3,27 @@ vim.pack.add {
     { src = 'https://github.com/nvim-lua/plenary.nvim' },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
     { src = 'https://github.com/rose-pine/neovim' },
+    { src = 'https://github.com/nvim-tree/nvim-web-devicons'},
+    { src = 'https://github.com/stevearc/oil.nvim' },
+    { src = 'https://github.com/metalelf0/black-metal-theme-neovim'},
+    { src = 'https://github.com/tpope/vim-fugitive'},
 }
 
 vim.lsp.enable(
-    { 'gopls', 'html', 'intelephense', 'bashls', 'nixd', 'lua_ls', 'prismals', 'rust_analyzer', 'svelte', 'ts_ls', 'zls' },
+    { 'gopls', 'html', 'intelephense', 'bashls', 'nixd', 'lua_ls', 'prismals', 'rust_analyzer', 'svelte', 'ts_ls', 'zls', 'hls' },
     true)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 vim.lsp.inlay_hint.enable(true)
 
-vim.cmd("set completeopt+=noselect")
+require("black-metal").setup({})
+
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
         vim.keymap.set('i', '<C-n>', vim.lsp.omnifunc)
+        vim.cmd("set completeopt+=noselect")
         if client:supports_method('textDocument/completion') then
             vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
         end
@@ -31,7 +37,12 @@ vim.keymap.set('n', '<leader>fp', builtin.builtin, { desc = 'Telescope find pick
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fm', builtin.man_pages, { desc = 'Telescope live grep' })
 
-vim.keymap.set("n", "<leader>pv", "<CMD>Ex<CR>")
+require("oil").setup({
+    view_options = {
+        show_hidden = true
+    }
+})
+vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>y", "\"+y")
 
@@ -60,8 +71,6 @@ vim.opt.smartindent = true
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
 
-vim.o.statusline = "%t"
-
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -72,4 +81,4 @@ vim.keymap.set('n', '<leader>i', function() vim.diagnostic.open_float({ border =
 vim.o.termguicolors = false
 vim.opt.list = false
 
-vim.cmd.colorscheme('rose-pine')
+vim.cmd.colorscheme('dark-funeral')
