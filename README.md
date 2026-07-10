@@ -1,13 +1,3 @@
-Super basic vim config
+Super basic vim config, 120ish lines of bare minimum for comfortable daily work
 
-notable keys: read them in the init.lua bro
-
-CTRL N is for the completion to show on lsp enabled buffers (might change later)
-
-
-3 plugins:
-
-- https://github.com/nvim-telescope/telescope.nvim' <- because telescope is awesome
-- https://github.com/nvim-lua/plenary.nvim' <- telescope dependency
-- https://github.com/neovim/nvim-lspconfig' <- because its super handy
-
+-# this repository is available both on github at https://github.com/shafti-code/neovim-dotfiles and on codeberg at https://codeberg.org/shafti-code/nvim
